@@ -1,24 +1,24 @@
-import {
-  Menu, Breadcrumb, Icon,Tabs
-} from 'antd';
+import { Menu, Breadcrumb, Icon } from 'antd';
+const SubMenu = Menu.SubMenu;
 import React from 'react';
 
 export default class MenuTwo extends React.Component{
-
-
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
-      collapse: true,
+      collapse : true,
     }
+    this.onCollapseChange = this.onCollapseChange.bind(this);
   }
   onCollapseChange() {
     this.setState({
       collapse: !this.state.collapse,
     })
   }
+
   render() {
     const collapse = this.state.collapse;
+
     return (
       <div className={collapse ? "ant-layout-aside ant-layout-aside-collapse" : "ant-layout-aside"}>
         <aside className="ant-layout-sider">
@@ -68,4 +68,4 @@ export default class MenuTwo extends React.Component{
     );
   }
 
-};
+}

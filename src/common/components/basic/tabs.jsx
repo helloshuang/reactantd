@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import  Meta  from "../../components/basic/view";
-import CsTabs from "../../components/basic/cstabs";
+import Orderonline from "../../components/basic/orderonline";
 
 import {
   Row,
@@ -17,7 +17,8 @@ import {
   Menu,
   Icon,
   Tabs,
-  Tag
+  Tag,
+  Affix
   // Tree,
 } from 'antd';
 import  Refer  from "./refer";
@@ -117,31 +118,7 @@ class TabList extends Component {
           else {//如果vm为空则认为是首页
             this.list.push(
               <TabPane tab={pane.title} key={pane.key}>
-                <p>这是首页桌面</p>
-
-                <Row style={{textAlign:'center'}}>
-                  <Col span={6}><h1 style={{border:'solid 1px red',backgroundColor:'lightBlue'}}>第一个</h1></Col>
-                  <Col span={6}><h1 style={{border:'solid 1px red',backgroundColor:'pink'}}>第二个</h1></Col>
-                  <Col span={6}><h1 style={{border:'solid 1px red',backgroundColor:'grey'}}>第三个</h1></Col>
-                  <Col span={6}><h1 style={{border:'solid 1px red',backgroundColor:'yellow'}}>第四个</h1></Col>
-                </Row>
-                <br/>
-                <Row gutter={16} style={{textAlign:'center'}}>
-                  <Col span={6}><h1 style={{border:'solid 1px red',backgroundColor:'lightBlue',padding: '0 16px'}}>第一个</h1></Col>
-                  <Col span={6}><h1 style={{border:'solid 1px red',backgroundColor:'pink',padding: '0 16px'}}>第二个</h1></Col>
-                  <Col span={6}><h1 style={{border:'solid 1px red',backgroundColor:'grey',padding: '0 16px'}}>第三个</h1></Col>
-                  <Col span={6}><h1 style={{border:'solid 1px red',backgroundColor:'yellow',padding: '0 16px'}}>第四个</h1></Col>
-                </Row>
-                <br/>
-                <Row style={{textAlign:'center'}}>
-                  <Col span={6} offset={2}><h1 style={{border:'solid 1px red',backgroundColor:'lightBlue'}}>第一个</h1></Col>
-                  <Col span={6} offset={2}><h1 style={{border:'solid 1px red',backgroundColor:'pink'}}>第二个</h1></Col>
-                  <Col span={6} offset={2}><h1 style={{border:'solid 1px red',backgroundColor:'grey'}}>第三个</h1></Col>
-                </Row>
-                <Tag color="#f50" closable >#f50</Tag>
-                <Tag color="#87d068" closable >#87d068</Tag>
-                <Tag color="#2db7f5" closable >#2db7f5</Tag>
-                <CsTabs/>
+                <Orderonline/>
               </TabPane>);
             this.keylist.push(pane.key);
           }

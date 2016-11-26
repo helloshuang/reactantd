@@ -7,6 +7,8 @@ import React from 'react';
 import moment from 'moment';
 
 import MenuTwo from "../../components/basic/menutwo";
+import MenuThree from "../../components/basic/menuthree";
+import Bing from "../../components/basic/bing";
 const TabPane = Tabs.TabPane;
 
 export default class CsTabs extends React.Component{
@@ -17,8 +19,8 @@ export default class CsTabs extends React.Component{
         <Calendar fullscreen={false}/>
       </div></TabPane>
       <TabPane tab="Tab 2" key="2"><MenuTwo /></TabPane>
-      <TabPane tab="Tab 3" key="3"></TabPane>
-      <TabPane tab="Tab 4" key="4"><Icon type="meh-o" /></TabPane>
+      <TabPane tab="Tab 3" key="3"><MenuThree/></TabPane>
+      <TabPane tab="Tab 4" key="4"><Bing/></TabPane>
       <TabPane tab="Tab 5" key="5"><Icon type="smile" /></TabPane>
       <TabPane tab="Tab 6" key="6"><Icon type="smile-o" /></TabPane>
       <TabPane tab="Tab 7" key="7"><Icon type="like" /></TabPane>
