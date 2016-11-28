@@ -1,8 +1,11 @@
-/**
- * Created by Administrator on 2016/11/24.
- */
 import React, { Component } from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import { History } from 'react-router';
+
+import * as logactions from '../../redux/modules/user'
 import {
   Row,
   Col,
@@ -14,7 +17,7 @@ import {
   // Tree,
 } from 'antd';
 
-export class Page extends Component {
+export default class Newcs extends Component {
   constructor(props) {
     super(props);
   }
