@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import ActionStatus from '../../constants/ActionStatus'
 import { History } from 'react-router';
 
 import * as logactions from '../../redux/modules/user'
@@ -18,7 +17,7 @@ import {
   // Tree,
 } from 'antd';
 
-export default class Test extends Component {
+export default class Mypage extends Component {
   constructor(props) {
     super(props);
   }
@@ -26,7 +25,7 @@ export default class Test extends Component {
     console.log('ok')
     return(
       <div>
-        <Button>123</Button>
+        <Button>哈哈</Button>
       </div>
     )
   }

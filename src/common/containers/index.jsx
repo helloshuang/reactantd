@@ -9,5 +9,5 @@ export ErrorNotFoundPage from './Errors/NotFound'
 export UserListPage from './User/UserList'
 export UserLoginPage from './User/UserLogin'
 export LoginPage from './User/Login'
-export TestPage from './Test/test'
+export GiftUseInfoPage from './GiftUseInfo/GiftUseInfo'
 

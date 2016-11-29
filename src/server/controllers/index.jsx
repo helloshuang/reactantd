@@ -7,6 +7,9 @@ export default router
 
 
 import user from './user'
+import giftuseinfo from './giftuseinfo'
+
+giftuseinfo(router)
 user(router)
 
 // TODO: 增加其他模块的路由，如：

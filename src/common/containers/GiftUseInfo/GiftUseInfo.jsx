@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-
-import { History } from 'react-router';
-
-import * as logactions from '../../redux/modules/user'
 import {
   Row,
   Col,
@@ -16,6 +10,7 @@ import {
   Tabs,
   // Tree,
 } from 'antd';
+import Giftuseinfo from '../../components/basic/giftuseinfo'
 
 export default class Newcs extends Component {
   constructor(props) {
@@ -25,7 +20,8 @@ export default class Newcs extends Component {
     console.log('ok')
     return(
       <div>
-        <Button>123</Button>
+        <Giftuseinfo/>
+        {/*注释*/}
       </div>
     )
   }

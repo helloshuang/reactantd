@@ -7,7 +7,9 @@ import {
   Col,
   Select,
   Button,
-  Table
+  Table,
+  DatePicker,
+  Switch
 } from 'antd';
 
 import Forms from "../../components/basic/forms";
@@ -17,6 +19,7 @@ const formItemLayout = {
   wrapperCol: { span: 10 },
 };
 const Option  = Select.Option;
+const RangePicker = DatePicker.RangePicker;
 
 export default class MarketingActive extends  React.Component{
 
@@ -25,44 +28,44 @@ export default class MarketingActive extends  React.Component{
   }
   render(){
     const columns = [{
-      title: '礼品类型',
-      dataIndex: 'gift_type',
-      width:'150px'
+      title: '活动类型',
+      dataIndex: 'active_type'
     }, {
-      title: '礼品名称',
-      dataIndex: 'gift_name',
-      width:'50%'
+      title: '活动名称',
+      dataIndex: 'active_name'
+    }, {
+      title: '人气',
+      dataIndex: 'active_moods'
     },{
-      title: '创建时间',
-      dataIndex: 'gift_time'
+      title: '活动日期',
+      dataIndex: 'active_time'
     }, {
       title: '创建人',
-      dataIndex: 'gift_maker'
+      dataIndex: 'active_maker'
+    }, {
+      title: '活动开关',
+      dataIndex: 'active_switch'
     }, {
       title: '操作',
-      dataIndex: 'gift_event'
+      dataIndex: 'active_event'
     }];
 
     const data = [];
     for (let i = 0; i < 20; i++) {
       data.push({
         key: i,
-        gift_type: <div className="gift_type" style={{width:'120px',height:'80px',background:'pink',color:'#fff',textAlign:'center',lineHeight:'20px',borderRadius:'5px',position:'relative'}}>
+        active_type: <div className="active_type" style={{background:'pink',color:'#fff',textAlign:'center',lineHeight:'20px',borderRadius:'5px',position:'relative'}}>
           <br/>礼品券<br/>
           {i}元
           <div className="left" style={{width:'30px',height:'30px',background:'#fbfbfb',borderRadius:'50%',position:'absolute',left:'-15px',top:'25px'}}></div>
           <div className="right" style={{width:'30px',height:'30px',background:'#fbfbfb',borderRadius:'50%',position:'absolute',right:'-15px',top:'25px'}}></div>
         </div>,
-        gift_name: <div>
-          <div className="name">豆捞坊礼品券</div>
-          <br/>
-          <div className="gift_rule">礼品规则：<br/>
-            顾客在获取实物礼品券后，礼品具体领取方式请联系商家，商家会在核对信息无误后进行赠送。<br/>
-            在法律允许的范围内豆捞坊保留对本活动的最终解释权</div>
-        </div>,
-        gift_time: `2016/11/28 13:19`,
-        gift_maker: `doulaofang`,
-        gift_event: <div><a href="#">修改</a><br/><a href="#">删除</a><br/><a href="#">使用详情</a></div>,
+        active_name: `打折促销`,
+        active_moods:`45244`,
+        active_time: `2016/11/28 13:19`,
+        active_maker: `doulaofang`,
+        active_switch:<Switch checkedChildren={'开'} unCheckedChildren={'关'}/>,
+        active_event: <div><a href="#">修改</a><br/><a href="#">删除</a><br/><a href="#">使用详情</a></div>,
       });
     }
 
@@ -82,21 +85,35 @@ export default class MarketingActive extends  React.Component{
             <Form horizontal className="ant-advanced-search-form">
               <Row>
                 <Col span={8}>
-                  <FormItem {...formItemLayout} label={`礼品名称`}>
+                  <FormItem {...formItemLayout} label={`活动名称`}>
                     <Input placeholder="" />
                   </FormItem>
                 </Col>
                 <Col span={8}>
-                  <FormItem {...formItemLayout} label={`礼品类型`}>
+                  <FormItem {...formItemLayout} label={`活动类型`}>
                     <Select defaultValue="all">
                       <Option value="all">全部</Option>
-                      <Option value="type1">电子代金券</Option>
-                      <Option value="type2">菜品代金券</Option>
-                      <Option value="type3">实物代金券</Option>
+                      <Option value="type1">摇奖活动</Option>
+                      <Option value="type2">免费领取</Option>
+                      <Option value="type3">短信群发</Option>
                     </Select>
                   </FormItem>
                 </Col>
-                <Col span={4}>
+                <Col span={8}>
+                  <FormItem {...formItemLayout} label={`活动状态`}>
+                    <Select defaultValue="all">
+                      <Option value="all">不限</Option>
+                      <Option value="on">已启用</Option>
+                      <Option value="no">未启用</Option>
+                    </Select>
+                  </FormItem>
+                </Col>
+                <Col span={8}>
+                  <FormItem {...formItemLayout} label={`起止日期`}>
+                    <RangePicker/>
+                  </FormItem>
+                </Col>
+                <Col span={4} offset={8}>
                     <Button  style={{width:'50%',height:'30px',backgroundColor:'orange',color:'#fff',border:'none'}}>查询</Button>
                 </Col>
                 <Col span={4}>

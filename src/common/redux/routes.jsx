@@ -18,9 +18,9 @@ const requireAuthentication = (nextState, replace, callback) => {
 export default (
   <Route path="/" >
     <IndexRoute component={Pages.DefaultPage}/>
-    <Route path="login" component={Pages.LoginPage}>
+    <Route path="useinfo" component={Pages.GiftUseInfoPage}>
     </Route>
-    <Route path="test" component={Pages.TestPage}>
+    <Route path="login" component={Pages.LoginPage}>
     </Route>
     <Route path="meta" component={Pages.TestDefaultPage}>
       <Route path=":type/:key" component={Pages.MetaIndexPage} />
@@ -31,5 +31,6 @@ export default (
     </Route>
     <Route path="users" component={Pages.UserListPage} onEnter={requireAuthentication} />
     <Route path="*" component={Pages.ErrorNotFoundPage} />
+
   </Route>
 )

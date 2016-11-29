@@ -40,6 +40,8 @@
     "cookies-js": "^1.2.2",
     "es6-promise": "^3.2.1",
     "fixed-data-table": "^0.6.2",
+    "g2": "^2.1.5",
+    "g2-react": "^1.1.0",
     "immutable": "^3.8.1",
     "invariant": "^2.2.1",
     "isomorphic-fetch": "^2.2.1",

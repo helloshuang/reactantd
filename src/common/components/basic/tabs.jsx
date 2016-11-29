@@ -7,8 +7,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import  Meta  from "../../components/basic/view";
-import Orderonline from "../../components/basic/orderonline";
-
+import MarketingGift from "../../components/basic/marketinggift";
+import MarketingActive from "../../components/basic/Marketingactive";
 import {
   Row,
   Col,
@@ -118,7 +118,14 @@ class TabList extends Component {
           else {//如果vm为空则认为是首页
             this.list.push(
               <TabPane tab={pane.title} key={pane.key}>
-                <Orderonline/>
+                <Tabs>
+                  <TabPane tab='礼品管理' key='1'>
+                    <MarketingGift/>
+                  </TabPane>
+                  <TabPane tab='活动管理' key='2'>
+                    <MarketingActive/>
+                  </TabPane>
+                </Tabs>
               </TabPane>);
             this.keylist.push(pane.key);
           }
