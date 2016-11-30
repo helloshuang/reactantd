@@ -32,13 +32,13 @@ export default class RadioGroupControl extends React.Component{
 //  	const data = this.state.data.map(item => <Radio key={item.key} value={item.value}>{item.name}</Radio>);
 		let data = this.state.data.map(function (item) {
 			let type = this.state.type;
-			
+
 			if(type=='button'){
 				return	<RadioButton key={item.key} disabled={item.disabled} value={item.value}>{item.name}</RadioButton>
 			}else{
 				return	<Radio key={item.key} disabled={item.disabled} value={item.value}>{item.name}</Radio>
 			}
-			
+
 		}.bind(this));
         return (
             <RadioGroup value={this.state.value} size={this.state.size} onChange={e => this.handleInputChange(e)} >

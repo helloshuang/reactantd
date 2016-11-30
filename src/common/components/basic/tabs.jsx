@@ -9,6 +9,11 @@ import { connect } from 'react-redux'
 import  Meta  from "../../components/basic/view";
 import MarketingGift from "../../components/basic/marketinggift";
 import MarketingActive from "../../components/basic/Marketingactive";
+import EditableTable from "../../components/basic/EditableTable";
+import Radiobuttons from "../../components/basic/radiobuttons";
+import BuyUntil from "../../components/basic/buyuntil";
+import NSales from "../../components/basic/nsales";
+
 import {
   Row,
   Col,
@@ -119,13 +124,22 @@ class TabList extends Component {
             this.list.push(
               <TabPane tab={pane.title} key={pane.key}>
                 <Tabs>
-                  <TabPane tab='礼品管理' key='1'>
+                  <TabPane tab='菜品管理' key='1'>
+                    <EditableTable/>
+                  </TabPane>
+                  <TabPane tab='菜品管理' key='2'>
+                    <Radiobuttons/>
+                    <BuyUntil/>
+                    <NSales/>
+                  </TabPane>
+                  <TabPane tab='礼品管理' key='3'>
                     <MarketingGift/>
                   </TabPane>
-                  <TabPane tab='活动管理' key='2'>
+                  <TabPane tab='活动管理' key='4'>
                     <MarketingActive/>
                   </TabPane>
                 </Tabs>
+
               </TabPane>);
             this.keylist.push(pane.key);
           }
