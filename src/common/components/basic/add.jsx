@@ -7,7 +7,7 @@ import { Form, Input, Icon, Button } from 'antd';
 const FormItem = Form.Item;
 
 let uuid = 0;
-class DynamicField extends React.Component {
+class AddField extends React.Component {
   componentWillMount() {
     this.props.form.setFieldsValue({
       keys: [0],
@@ -85,4 +85,4 @@ class DynamicField extends React.Component {
   }
 }
 
-export const Nsales = Form.create()(DynamicField);
+export const Add = Form.create()(AddField);

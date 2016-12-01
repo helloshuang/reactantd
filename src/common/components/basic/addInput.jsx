@@ -85,4 +85,4 @@ class DynamicField extends React.Component {
   }
 }
 
-export const Nsales = Form.create()(DynamicField);
+export const WrappedDynamicField = Form.create()(DynamicField);

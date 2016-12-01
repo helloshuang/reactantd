@@ -12,8 +12,10 @@ import MarketingActive from "../../components/basic/Marketingactive";
 import EditableTable from "../../components/basic/EditableTable";
 import Radiobuttons from "../../components/basic/radiobuttons";
 import BuyUntil from "../../components/basic/buyuntil";
-import NSales from "../../components/basic/nsales";
-
+import Nsales from "../../components/basic/nsales";
+import Add from "../../components/basic/add";
+import SelectGroup from "../../components/basic/selectgroup";
+import MyActivities from "../../components/basic/MyActivities/myactivities";
 import {
   Row,
   Col,
@@ -23,7 +25,8 @@ import {
   Icon,
   Tabs,
   Tag,
-  Affix
+  Affix,
+  Popconfirm
   // Tree,
 } from 'antd';
 import  Refer  from "./refer";
@@ -75,6 +78,143 @@ class TabList extends Component {
   };*/
 
   render(){
+    const dataone = [
+      {
+        key: '0',
+        operation: {
+          value: '32',
+        },
+        category: {
+          value: '饮料类',
+        },
+        code: {
+          value: '110001',
+        },
+        editpercent: {
+          editable: false,
+          value: '+10',
+        },
+        editprice: {
+          editable: false,
+          value: '+8',
+        },
+      },
+      {
+        key: '1',
+        operation: {
+          value: '32',
+        },
+        category: {
+          value: '饮料类',
+        },
+        code: {
+          value: '110001',
+        },
+        editpercent: {
+          editable: false,
+          value: '+10',
+        },
+        editprice: {
+          editable: false,
+          value: '+8',
+        },
+      },
+      {
+        key: '2',
+        operation: {
+          value: '32',
+        },
+        category: {
+          value: '饮料类',
+        },
+        code: {
+          value: '110001',
+        },
+        editpercent: {
+          editable: false,
+          value: '+10',
+        },
+        editprice: {
+          editable: false,
+          value: '+8',
+        },
+      }];
+    const datatwo = [
+      {
+        key: '0',
+
+        activityType: {
+          value: '满减活动1',
+        },
+        activityName: {
+          value: '情人节活动',
+        },
+        activityCode: {
+          value: '11002222',
+        },
+        validTime: {
+          value: '2016.11.05--2016.12.31',
+        },
+        activityState: {
+          value: '未开始',
+        },
+        creater: {
+          value: 'doulaofang',
+        },
+        createTime: {
+          value: '2016.11.01/2016.11.02',
+        }
+      },
+      {
+        key: '1',
+
+        activityType: {
+          value: '满减活动2',
+        },
+        activityName: {
+          value: '情人节活动',
+        },
+        activityCode: {
+          value: '11002222',
+        },
+        validTime: {
+          value: '2016.11.05--2016.12.31',
+        },
+        activityState: {
+          value: '未开始',
+        },
+        creater: {
+          value: 'doulaofang',
+        },
+        createTime: {
+          value: '2016.11.01/2016.11.02',
+        }
+      },
+      {
+        key: '2',
+
+        activityType: {
+          value: '满减活动3',
+        },
+        activityName: {
+          value: '情人节活动',
+        },
+        activityCode: {
+          value: '11002222',
+        },
+        validTime: {
+          value: '2016.11.05--2016.12.31',
+        },
+        activityState: {
+          value: '未开始',
+        },
+        creater: {
+          value: 'doulaofang',
+        },
+        createTime: {
+          value: '2016.11.01/2016.11.02',
+        }
+      }];
     let { tabs,tabsactions } = this.props;
     if(tabs.tabflag){//只有更新时候进入此分支
       let length = tabs.panes.length,//this.keylist.length>?this.keylist.length:tabs.panes.length;
@@ -125,12 +265,14 @@ class TabList extends Component {
               <TabPane tab={pane.title} key={pane.key}>
                 <Tabs>
                   <TabPane tab='菜品管理' key='1'>
-                    <EditableTable/>
+                    <SelectGroup/>
+                    <MyActivities colcs={'a'} data={dataone}/>
+                    <MyActivities colcs={'b'} data={datatwo}/>
                   </TabPane>
                   <TabPane tab='菜品管理' key='2'>
                     <Radiobuttons/>
                     <BuyUntil/>
-                    <NSales/>
+                    <EditableTable/>
                   </TabPane>
                   <TabPane tab='礼品管理' key='3'>
                     <MarketingGift/>

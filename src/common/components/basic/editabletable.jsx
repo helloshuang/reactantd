@@ -60,6 +60,7 @@ export default class EditableTable extends React.Component {
       title: '序号',
       dataIndex: 'num',
       width: '8%',
+        //参数分别为当前行的值，当前行数据，行索引，return可以决定表格里最终存放的值
       render: (text, record, index) => {
         return <span>{index+1}</span>
       },
@@ -132,7 +133,8 @@ export default class EditableTable extends React.Component {
     this.state = {
       tit:'调价菜品类别',
       batchTlt:'批量添加类别',
-      data: [{
+      data: [
+        {
         key: '0',
         operation: {
           value: '32',
