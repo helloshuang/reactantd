@@ -42,7 +42,6 @@ class EditableCell extends React.Component {
             <Input
               value={value}
               onChange={e => this.handleChange(e)}
-              autofocus = {true}
             />
           </div>
           :

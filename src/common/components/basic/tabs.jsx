@@ -16,7 +16,8 @@ import SelectGroup from "../../components/basic/selectgroup";
 import EditableTable from "../../components/basic/EditableTable/editableTable";
 import SelectBoxs from "../../components/basic/SelectBoxs/selectBoxs";
 import UnitInput from "../../components/basic/UnitInput/unitInput";
-import CutAmount from "../../components/basic/CutAmount/cutAmount"
+import CutAmount from "../../components/basic/CutAmount/cutAmount";
+import AddOrDelInput from "../../components/basic/AddOrDelInput/addOrDelInput";
 import {
   Row,
   Col,
@@ -286,20 +287,12 @@ class TabList extends Component {
                     <br/>
                     <SelectBoxs label={'活动范围'} data={dataSelectTwo}/>
                     <br/>
-
                     <CutAmount unit={'元'} type={'withRadio'} tit={'按金额随机减'}/>
-
                     <br/><br/>
-
                     <CutAmount unit={'%'} tit={'按账单金额比例随机折扣'}/>
-
                   </TabPane>
-
-                  <TabPane tab='礼品管理' key='3'>
-                    <MarketingGift/>
-                  </TabPane>
-                  <TabPane tab='活动管理' key='4'>
-                    <MarketingActive/>
+                  <TabPane tab='礼品管理' key='2'>
+                    <AddOrDelInput/>
                   </TabPane>
                 </Tabs>
 
