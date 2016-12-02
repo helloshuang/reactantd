@@ -9,13 +9,14 @@ import { connect } from 'react-redux'
 import  Meta  from "../../components/basic/view";
 import MarketingGift from "../../components/basic/marketinggift";
 import MarketingActive from "../../components/basic/Marketingactive";
-import EditableTable from "../../components/basic/EditableTable";
-import Radiobuttons from "../../components/basic/radiobuttons";
 import BuyUntil from "../../components/basic/buyuntil";
 import Nsales from "../../components/basic/nsales";
 import Add from "../../components/basic/add";
 import SelectGroup from "../../components/basic/selectgroup";
-import MyActivities from "../../components/basic/MyActivities/myactivities";
+import EditableTable from "../../components/basic/EditableTable/editableTable";
+import SelectBoxs from "../../components/basic/SelectBoxs/selectBoxs";
+import UnitInput from "../../components/basic/UnitInput/unitInput";
+import CutAmount from "../../components/basic/CutAmount/cutAmount"
 import {
   Row,
   Col,
@@ -26,7 +27,8 @@ import {
   Tabs,
   Tag,
   Affix,
-  Popconfirm
+  Popconfirm,
+  Checkbox
   // Tree,
 } from 'antd';
 import  Refer  from "./refer";
@@ -78,7 +80,7 @@ class TabList extends Component {
   };*/
 
   render(){
-    const dataone = [
+    const dataTableone = [
       {
         key: '0',
         operation: {
@@ -139,7 +141,7 @@ class TabList extends Component {
           value: '+8',
         },
       }];
-    const datatwo = [
+    const dataTabletwo = [
       {
         key: '0',
 
@@ -215,6 +217,15 @@ class TabList extends Component {
           value: '2016.11.01/2016.11.02',
         }
       }];
+    const dataSelect = [
+      {key:1,value:1,name:'提交评价或问券即返赠'},
+      {key:2,value:2,name:'评价或问券审核有效后返赠'}
+    ];
+    const dataSelectTwo = [
+      {key:1,value:1,name:'全部'},
+      {key:2,value:2,name:'菜品分类'},
+      {key:3,value:3,name:'菜品'}
+    ];
     let { tabs,tabsactions } = this.props;
     if(tabs.tabflag){//只有更新时候进入此分支
       let length = tabs.panes.length,//this.keylist.length>?this.keylist.length:tabs.panes.length;
@@ -266,14 +277,24 @@ class TabList extends Component {
                 <Tabs>
                   <TabPane tab='菜品管理' key='1'>
                     <SelectGroup/>
-                    <MyActivities colcs={'a'} data={dataone}/>
-                    <MyActivities colcs={'b'} data={datatwo}/>
+                    <br/>
+                    <EditableTable colName={1} data={dataTableone}/>
+                    <br/>
+                    <EditableTable colName={2} data={dataTabletwo}/>
+                    <br/>
+                    <SelectBoxs label={'评价返赠选择'} data={dataSelect}/>
+                    <br/>
+                    <SelectBoxs label={'活动范围'} data={dataSelectTwo}/>
+                    <br/>
+
+                    <CutAmount unit={'元'} type={'withRadio'} tit={'按金额随机减'}/>
+
+                    <br/><br/>
+
+                    <CutAmount unit={'%'} tit={'按账单金额比例随机折扣'}/>
+
                   </TabPane>
-                  <TabPane tab='菜品管理' key='2'>
-                    <Radiobuttons/>
-                    <BuyUntil/>
-                    <EditableTable/>
-                  </TabPane>
+
                   <TabPane tab='礼品管理' key='3'>
                     <MarketingGift/>
                   </TabPane>

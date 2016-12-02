@@ -1,0 +1,31 @@
+.editTable{
+  td, th{
+    padding: 5px 5px;
+    text-align: center;
+  }
+  tr:nth-of-type(even){
+    background-color:#f7f7f7;
+  }
+}
+
+.enabled-switch {
+  .ant-switch{
+    border-radius: 3px;
+    width: 100px;
+    &:after{
+      border-radius: 3px;
+      width: 50px;
+      background-color: #fff;
+    }
+  }
+  .ant-switch-checked {
+    border-color: #28b295;
+    background-color: #28b295;
+    &:after{
+      left:48px;
+    }
+  }
+}
+.ant-switch-inner{
+  left:54px;
+}

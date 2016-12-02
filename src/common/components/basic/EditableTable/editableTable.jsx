@@ -1,9 +1,9 @@
 import React from 'react';
 import {Table, Icon, Popconfirm, Modal, Button,Switch,Input} from 'antd';
 if (process.env.__CLIENT__===true){
-  require('./style/myactivities.less');
+  require('./style/editableTable.less');
 }
-export class EditableCell extends React.Component {
+class EditableCell extends React.Component {
   state = {
     value: this.props.value,
     editable: this.props.editable || false,
@@ -53,7 +53,8 @@ export class EditableCell extends React.Component {
     </div>);
   }
 }
-export default class MyActivities extends React.Component {
+
+export default class EditableTable extends React.Component {
   constructor(props) {
     super(props);
     this.columnsone =  [
@@ -186,7 +187,7 @@ export default class MyActivities extends React.Component {
         title: '启用状态',
         dataIndex: 'enabled',
         render: (text, record, index) => {
-          return <Switch checkedChildren={'已启用'} unCheckedChildren={'未启用'} className={'enabled-switch'}></Switch>
+          return <div className={'enabled-switch'}><Switch checkedChildren={'已启用'} unCheckedChildren={'未启用'}></Switch></div>
         }
       },{
         title: '排序',
@@ -202,10 +203,7 @@ export default class MyActivities extends React.Component {
           );
         }
       }];
-    this.state = {
-      tit:'调价菜品类别',
-      batchTlt:'批量添加类别'
-    };
+
     this.handleOk = this.handleOk.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
@@ -215,14 +213,16 @@ export default class MyActivities extends React.Component {
     this.setState({ data:this.props.data});
     this.columns = this.getColumns();
   }
+  //根据colName来获取相应的表格格式
   getColumns(){
-    const colcs = this.props.colcs;
-    if(colcs=='a'){
+    const colName = this.props.colName;
+    if(colName==1){
       return this.columnsone;
     }else {
       return this.columnstwo;
     }
   }
+
 
   renderColumns(data, index, key, text) {
     const { editable, status } = data[index][key];
@@ -237,7 +237,7 @@ export default class MyActivities extends React.Component {
     />);
   }
 
-
+//编辑
   edit(index,record) {
     const { data } = this.state;
     Object.keys(data[index]).forEach((item) => {
@@ -248,6 +248,7 @@ export default class MyActivities extends React.Component {
     this.setState({ data });
     console.log(record);
   }
+  //编辑结束
   editDone(index, type) {
     const { data } = this.state;
     Object.keys(data[index]).forEach((item) => {
@@ -355,13 +356,6 @@ export default class MyActivities extends React.Component {
 
     return (
       <div>
-        <span>
-          <span style={{fontWeight:900}}>{this.state.tit}</span>
-          (空为不调整，上调输入正的，下调输入负的)
-        </span>
-        <span  style={{float:'right'}}>
-          <a href="##"  onClick={this.handleAdd}>{this.state.batchTlt}</a>
-        </span>
         <Table className={'editTable'} bordered dataSource={dataSource} columns={this.columns} pagination={false} />
         <Modal title="Modal" visible={this.state.visible}
                onOk={this.handleOk} onCancel={this.handleCancel}
